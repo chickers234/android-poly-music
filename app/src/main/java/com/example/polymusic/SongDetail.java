@@ -490,7 +490,7 @@ public class SongDetail extends AppCompatActivity {
                 notifManager.createNotificationChannel(notificationChannel);
             }
             builder = new NotificationCompat.Builder(SongDetail.this, channelId);
-            intent = new Intent(SongDetail.this, SongDetail.class);
+            intent = new Intent(SongDetail.this, MainActivity.class);
             intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP);
             // use System.currentTimeMillis() to have a unique ID for the pending intent
             try {
@@ -578,7 +578,7 @@ public class SongDetail extends AppCompatActivity {
 
                             runOnUiThread(new Runnable() {
                                 public void run() {
-                                    intent = new Intent(SongDetail.this, SongDetail.class);
+                                    intent = new Intent(SongDetail.this, MainActivity.class);
                                     intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP);
                                     if (notifManager == null) {
                                         notifManager = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
