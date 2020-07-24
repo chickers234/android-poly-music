@@ -59,7 +59,8 @@ public class SongAdapter extends BaseAdapter {
         Song song = this.objects.get(position);
 
         try {
-            Picasso.with(context).load("http://192.168.1.157:3000/"+song.getPoster()).into(viewHolder.imgPoster);
+            //Picasso.with(context).load("http://192.168.1.157:3000/"+song.getPoster()).into(viewHolder.imgPoster);
+            Picasso.with(context).load("https://poly-music.herokuapp.com/"+song.getPoster()).into(viewHolder.imgPoster);
         } catch (Exception e) {
 
         }
