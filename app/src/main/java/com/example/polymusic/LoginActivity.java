@@ -91,7 +91,7 @@ public class LoginActivity extends AppCompatActivity {
 
     }
 
-    public void login(String email, String password) {
+    public void login(final String email, String password) {
         API api = retrofit.getClient().create(API.class);
         api.login(email, password).enqueue(new Callback<ResponseBody>() {
             @Override
@@ -99,7 +99,14 @@ public class LoginActivity extends AppCompatActivity {
                 if (response.isSuccessful()) {
                     Log.d("status", response.code() + "");
                     if (response.code() == 200) {
-                        startActivity(new Intent(LoginActivity.this, FetchDataActivity.class));
+                        Intent intent = new Intent(LoginActivity.this, FetchDataActivity.class);
+                        if (email.equals("admin@gmail.com")) {
+                            intent.putExtra("admin", true);
+                        } else {
+                            intent.putExtra("admin", false);
+                        }
+                        startActivity(intent);
+                        //startActivity(new Intent(LoginActivity.this, FetchDataActivity.class));
                     }
                 } else {
                     Log.d("status", response.code() + "");

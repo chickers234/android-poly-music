@@ -58,6 +58,7 @@
         android:paddingTop="5dp">
 
         <ImageView
+            android:id="@+id/btnEdit"
             android:layout_width="20dp"
             android:layout_height="20dp"
             android:background="@drawable/ic_more"></ImageView>

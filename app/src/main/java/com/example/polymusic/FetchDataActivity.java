@@ -22,6 +22,7 @@ import retrofit2.Response;
 
 public class FetchDataActivity extends AppCompatActivity {
     public static List<Song> songList = new ArrayList<>();
+    public static boolean admin;
     RetrofitClient retrofit = new RetrofitClient();
 
     @Override
@@ -39,6 +40,13 @@ public class FetchDataActivity extends AppCompatActivity {
 
         // finally change the color
         window.setStatusBarColor(ContextCompat.getColor(FetchDataActivity.this, R.color.black));
+
+        Intent intent = getIntent();
+        try {
+            admin = intent.getBooleanExtra("admin", false);
+        } catch (Exception e) {
+
+        }
 
         getData();
     }
